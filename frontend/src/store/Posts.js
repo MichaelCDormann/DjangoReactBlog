@@ -16,7 +16,7 @@ export function getPostsData() {
 
     let posts = [];
 
-    const url = 'http://localhost:8000/api/posts/';
+    const url = `${process.env.REACT_APP_API_BASE}/api/posts/`;
     const result = await fetch(url);
 
     if (result.ok) {
@@ -56,7 +56,8 @@ export function getSpecificPost(id) {
       dispatch({type: SelectPostType, selectedPost})
 
     } else {
-      const result = await fetch(`http://localhost:8000/api/posts/${id}/`);
+      const url = `${process.env.REACT_APP_API_BASE}/api/posts/${id}/`;
+      const result = await fetch(url);
 
       if (result.ok) {
         const post = await result.json();
