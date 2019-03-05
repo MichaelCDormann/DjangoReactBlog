@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from CMS.views import PostViewSet
+from Blog.views import PostViewSet
 
 router = routers.SimpleRouter()
 router.register('posts', PostViewSet)

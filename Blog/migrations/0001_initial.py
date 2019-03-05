@@ -35,6 +35,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='image',
             name='post',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='CMS.Post'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Blog.Post'),
         ),
     ]
