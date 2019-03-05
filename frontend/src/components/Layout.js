@@ -12,15 +12,30 @@ class Layout extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {navVisible: false};
+    this.state = {
+      navVisible: false,
+      windowHeight: 0
+    };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize);
+
     setTimeout(() => this.setState({navVisible: true}), 50);
 
     this.props.getPostsData();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize() {
+    this.setState({ windowHeight: window.innerHeight});
   }
 
   handleClick(event) {
@@ -30,7 +45,7 @@ class Layout extends Component {
   render() {
     return (
       <div className='root-container'>
-        <div className={this.state.navVisible? 'main-nav show' : 'main-nav'}>
+        <div className={this.state.navVisible? 'main-nav show' : 'main-nav'} style={{minHeight: this.state.windowHeight}}>
           <NavMenu/>
         </div>
         <div className='rectangle'>
@@ -38,7 +53,7 @@ class Layout extends Component {
             <img src={arrow_icon}/>
           </div>
         </div>
-        <div className='main-content'>
+        <div className='main-content' style={{maxHeight: this.state.windowHeight}}>
           <Body/>
         </div>
       </div>

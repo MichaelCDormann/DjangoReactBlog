@@ -7,7 +7,7 @@
 .main-content {
     justify-content: center;
     flex-grow: 1;
-    /*overflow-y: scroll;*/
+    overflow-y: scroll;
     /*margin-left: 30px;*/
     /*margin-right: 30px;*/
 
@@ -16,7 +16,7 @@
 }
 
 .main-nav {
-    min-width: 0px;
+    min-width: 0;
     text-align: center;
     background-color: #282c34;
     width: 0;
