@@ -5,13 +5,12 @@
 }
 
 .main-content {
-    justify-content: center;
+    display: flex;
+    justify-content: flex-start;
     flex-grow: 1;
+    flex-direction: column;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    /*margin-left: 30px;*/
-    /*margin-right: 30px;*/
-
     background-image: url("../assets/background.jpg");
     background-repeat: repeat;
 }
@@ -21,7 +20,6 @@
     text-align: center;
     background-color: #282c34;
     width: 0;
-    /*opacity: 0;*/
     visibility: hidden;
     -webkit-transition: all .5s linear;
     -moz-transition: all .5s linear;
@@ -39,7 +37,6 @@
 .main-nav h1 {
     color: #c3c7ce;
     margin-left: 20px;
-
     opacity: 0;
     font-size: 0;
 
@@ -57,7 +54,6 @@
 .main-nav a {
     color: #c3c7ce;
     margin-left: 20px;
-
     opacity: 0;
     font-size: 0;
 
@@ -67,31 +63,25 @@
     transition: all .5s linear;
 }
 
+.main-nav.show a {
+    opacity: 1;
+    font-size: 20px;
+}
+
 .main-nav a:hover {
     color: black;
 }
 
-.main-nav.show a {
-    opacity: 1;
-    font-size: 16px;
+/* React boostrap override */
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 23px;
 }
-
-/*.main-nav h1 {*/
-    /*color: #c3c7ce;*/
-    /*margin-right: 20px;*/
-    /*margin-left: 20px;*/
-/*}*/
 
 .main-nav hr {
-    color: #61dafb;
     margin-left: 20px;
 }
-
-/*.main-nav.show h1 {*/
-    /*display: inherit;*/
-/*}*/
-
-
 
 .rectangle{
   display:flex;
@@ -103,16 +93,11 @@
 }
 
 .circle{
-  /*position:absolute;*/
   height:45px;
   width:45px;
   min-width:45px;
   border-radius:30px;
-  /*border:3px solid white;*/
-  /*left:150%;*/
-  /*margin-top:220%;*/
   margin-left:-10px;
-  /*top: -20px;*/
   background-color: #282c34;
 
   -webkit-transition: all .5s linear;
@@ -129,7 +114,6 @@
 
 .circle p {
   color: black;
-  /*margin-left: 35%;*/
   font-size: 2.5em;
 }
 

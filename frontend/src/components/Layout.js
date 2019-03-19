@@ -6,6 +6,7 @@ import Body from "./Body";
 import arrow_icon from '../assets/arrow_icon2.png';
 import { connect } from "react-redux";
 import { getPostsData } from "../store/Posts";
+import {SubNav} from "./SubNav";
 
 
 class Layout extends Component {
@@ -54,6 +55,7 @@ class Layout extends Component {
           </div>
         </div>
         <div className='main-content' style={{maxHeight: this.state.windowHeight}}>
+          {/*<SubNav/>*/}
           <Body/>
         </div>
       </div>

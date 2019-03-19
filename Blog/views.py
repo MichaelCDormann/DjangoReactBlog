@@ -8,4 +8,3 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
-    required_scopes = ['posts', 'read']

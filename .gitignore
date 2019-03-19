@@ -1,6 +1,8 @@
 DjangoReact/settings/__init__.py
 frontend/node_modules/
 .idea/
+node_modules/
+media/
 
 ### OSX ###
 .DS_Store

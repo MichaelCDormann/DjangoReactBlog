@@ -19,28 +19,32 @@ class NavMenu extends Component {
 
   render() {
     return (
-      <Nav bsStyle='pills' stacked>
-        <h1>Test React Site</h1>
+      <div>
+        <h1>Stuff I Do For Fun</h1>
         <hr/>
-        {this.props.posts.map((post) => {
-          return (
-            <NavItem key={post.id} id={post.id} onClick={this.handleClick}>
-              {post.title}
-            </NavItem>
-          )})}
-      </Nav>
+        <Nav bsStyle='pills' stacked>
+          {this.props.posts.map((post) => {
+            return (
+              <NavItem key={post.id} id={post.id} onClick={this.handleClick} active={this.props.selectedPost && this.props.selectedPost.id === post.id}>
+                {post.title}
+              </NavItem>
+            )})}
+        </Nav>
+      </div>
     );
   }
 }
 
 NavMenu.propTypes = {
   posts: PropTypes.array,
+  selectedPost: PropTypes.object,
   getSpecificPost: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.posts
+    posts: state.posts,
+    selectedPost: state.selectedPost
   }
 };
 
